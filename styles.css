@@ -337,54 +337,54 @@ input:focus {
 }
 
 .decor-hearts::before {
-  content: "💗 💖 💞 💓";
+  content: "🎉 🎈 ⭐ 🎊";
   top: 14%;
   left: -20%;
 }
 
 .decor-hearts::after {
-  content: "💕 💘 💝";
+  content: "🍭 🧁 🎉";
   bottom: 18%;
   right: -16%;
   animation-duration: 13s;
 }
 
 .decor-sparkles::before {
-  content: "✨ ⭐ ✨";
+  content: "✨ ⭐ ✨ 🤩";
   top: 60%;
   left: -18%;
   animation-duration: 14s;
 }
 
 .decor-sparkles::after {
-  content: "✧ ✨ ✧";
+  content: "🎊 ✨ 🎉";
   top: 32%;
   right: -15%;
   animation-duration: 10s;
 }
 
 .decor-flowers::before {
-  content: "🌸 🌷 🌸 🌼";
+  content: "🌸 🌼 🌈 🌸";
   top: 22%;
   right: -20%;
 }
 
 .decor-flowers::after {
-  content: "🌹 🌺 🌸";
+  content: "🍓 🌺 🌸";
   bottom: 12%;
   left: -14%;
   animation-duration: 12s;
 }
 
 .decor-ribbons::before {
-  content: "🎀 🎀";
+  content: "🎀 🍬";
   top: 8%;
   left: -10%;
   animation-duration: 9s;
 }
 
 .decor-ribbons::after {
-  content: "🎀";
+  content: "🎀 🎉";
   bottom: 8%;
   right: -8%;
 }
@@ -403,13 +403,13 @@ input:focus {
 }
 
 .decor-angry::before {
-  content: "😤 💢 😠";
+  content: "😤 💢 😠 🙄";
   top: 20%;
   left: -20%;
 }
 
 .decor-angry::after {
-  content: "😡 😤";
+  content: "😡 😤 🤨";
   bottom: 14%;
   right: -15%;
 }
