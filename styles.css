@@ -1,9 +1,11 @@
 :root {
-  --pink-1: #ffd8ec;
-  --pink-2: #ffc2df;
-  --pink-3: #ff9fcc;
-  --lavender: #e5d5ff;
-  --peach: #ffd8c8;
+  --pink-1: #ffd3f2;
+  --pink-2: #ffc0e0;
+  --pink-3: #ffa3d2;
+  --lavender: #d7d4ff;
+  --peach: #ffd0b8;
+  --sky: #c9efff;
+  --mint: #d7ffd8;
   --white-soft: #fff9fd;
   --text-dark: #5e3c54;
   --glow: 0 0 22px rgba(255, 150, 201, 0.6);
@@ -27,9 +29,37 @@ body {
   position: relative;
 }
 
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
 #app {
   position: relative;
   min-height: 100vh;
+  z-index: 2;
+}
+
+.giant-teddy {
+  position: fixed;
+  top: 50%;
+  font-size: clamp(4rem, 10vw, 8rem);
+  opacity: 0.27;
+  filter: drop-shadow(0 8px 16px rgba(120, 60, 93, 0.25));
+  pointer-events: none;
+  z-index: 1;
+  animation: teddyBob 7s ease-in-out infinite;
+}
+
+.giant-teddy--left {
+  left: clamp(8px, 2vw, 26px);
+}
+
+.giant-teddy--right {
+  right: clamp(8px, 2vw, 26px);
+  animation-delay: 0.8s;
 }
 
 .loader {
@@ -84,19 +114,20 @@ body {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 224, 241, 0.95),
-    rgba(255, 198, 225, 0.86),
-    rgba(236, 214, 255, 0.9)
+    rgba(255, 224, 241, 0.9),
+    rgba(206, 241, 255, 0.82),
+    rgba(236, 214, 255, 0.88),
+    rgba(220, 255, 226, 0.8)
   );
   z-index: -2;
 }
 
 .page-angry::before {
-  background: linear-gradient(145deg, #ffc5db, #ff9fcb, #f9b0dd);
+  background: linear-gradient(145deg, #ffc5db, #ff9fcb, #ffc17f);
 }
 
 .page-final::before {
-  background: linear-gradient(145deg, #ffc7e3, #f0d8ff, #ffd7ce, #ffb9dd);
+  background: linear-gradient(145deg, #ffc7e3, #cfefff, #ffe49e, #bfffd4, #ffb9dd);
   background-size: 260% 260%;
   animation: gradientFlow 12s ease infinite;
 }
@@ -109,7 +140,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(12px);
-  box-shadow: 0 20px 35px rgba(230, 136, 180, 0.24), var(--glow);
+  box-shadow: 0 20px 35px rgba(230, 136, 180, 0.24), var(--glow), 0 0 0 3px rgba(255, 255, 255, 0.15);
   text-align: center;
   animation: floaty 6s ease-in-out infinite;
 }
@@ -134,6 +165,12 @@ body {
   color: #a85f87;
 }
 
+h2,
+.fancy-title,
+.final-title {
+  letter-spacing: 0.4px;
+}
+
 h2 {
   margin: 0;
   font-family: "Quicksand", sans-serif;
@@ -143,6 +180,33 @@ h2 {
 .subtitle {
   margin: 10px 0 22px;
   opacity: 0.9;
+}
+
+.meme-chip {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  background: linear-gradient(120deg, #fff2a9, #ffd6f1);
+  color: #7a3f62;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.meme-line {
+  margin-top: -4px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7b4764;
+}
+
+.mega-text {
+  margin: -6px 0 18px;
+  font-weight: 700;
+  color: #8b4f76;
+  text-shadow: 0 0 10px rgba(255, 221, 156, 0.85);
 }
 
 .cute-form {
@@ -186,6 +250,17 @@ input:focus {
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
+.btn-sound {
+  margin-top: 10px;
+  color: #76415f;
+  background: linear-gradient(120deg, #fff4b6, #ffdff4, #d9f4ff);
+  box-shadow: 0 10px 18px rgba(156, 117, 183, 0.28);
+}
+
+.btn-sound:hover {
+  box-shadow: 0 12px 24px rgba(156, 117, 183, 0.4);
+}
+
 .btn:hover {
   transform: translateY(-3px) scale(1.02);
 }
@@ -220,6 +295,11 @@ input:focus {
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
+}
+
+.button-row-small .btn {
+  min-width: 165px;
+  font-size: 0.92rem;
 }
 
 .button-row .btn {
@@ -274,7 +354,7 @@ input:focus {
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 18px;
   padding: 10px;
-  box-shadow: 0 16px 24px rgba(150, 78, 117, 0.2);
+  box-shadow: 0 16px 24px rgba(150, 78, 117, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.2);
   transform: rotate(var(--tilt, 0deg));
   animation: floaty var(--duration, 5.8s) ease-in-out infinite;
   position: relative;
@@ -337,13 +417,13 @@ input:focus {
 }
 
 .decor-hearts::before {
-  content: "🎉 🎈 ⭐ 🎊";
+  content: "🎉 🎈 ⭐ 🎊 🤡";
   top: 14%;
   left: -20%;
 }
 
 .decor-hearts::after {
-  content: "🍭 🧁 🎉";
+  content: "🍭 🧁 🎉 🐥";
   bottom: 18%;
   right: -16%;
   animation-duration: 13s;
@@ -357,7 +437,7 @@ input:focus {
 }
 
 .decor-sparkles::after {
-  content: "🎊 ✨ 🎉";
+  content: "🎊 ✨ 🎉 🪩";
   top: 32%;
   right: -15%;
   animation-duration: 10s;
@@ -384,13 +464,13 @@ input:focus {
 }
 
 .decor-ribbons::after {
-  content: "🎀 🎉";
+  content: "🎀 🎉 🍿";
   bottom: 8%;
   right: -8%;
 }
 
 .decor-teddies::before {
-  content: "🧸  🧸";
+  content: "🧸  🧸 🎮";
   top: 20%;
   left: -16%;
 }
@@ -409,7 +489,7 @@ input:focus {
 }
 
 .decor-angry::after {
-  content: "😡 😤 🤨";
+  content: "😡 😤 🤨 🫠";
   bottom: 14%;
   right: -15%;
 }
@@ -467,7 +547,22 @@ input:focus {
   }
 }
 
+@keyframes teddyBob {
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(calc(-50% - 12px)) translateX(3px) rotate(4deg);
+  }
+}
+
 @media (max-width: 760px) {
+  .giant-teddy {
+    font-size: clamp(3rem, 8vw, 5rem);
+    opacity: 0.2;
+  }
+
   .glass-card {
     width: min(95vw, 430px);
     padding: 22px 18px;

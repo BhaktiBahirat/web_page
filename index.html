@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <!-- Giant floating teddy background mascot -->
+    <div class="giant-teddy giant-teddy--left" aria-hidden="true">🧸</div>
+    <div class="giant-teddy giant-teddy--right" aria-hidden="true">🧸</div>
+
     <!-- Soft loading overlay for aesthetic reveal -->
     <div class="loader" id="loader">
       <div class="loader-heart">🎉</div>
@@ -29,6 +35,7 @@
 
         <div class="glass-card login-card">
           <div class="card-sticker teddy">🧸</div>
+          <div class="meme-chip">WARNING: 100% Goofy Zone 🤪</div>
           <h1 class="fancy-title">Hey Bestie 🌟</h1>
           <p class="subtitle">A super cute surprise is waiting for you...</p>
 
@@ -43,6 +50,7 @@
             </label>
             <button type="submit" class="btn btn-primary">Let Me In 🎊</button>
           </form>
+          <button class="btn btn-sound" id="loginSoundBtn" type="button">Goofy Sound 🔊</button>
           <span class="card-corner-flower">🌸</span>
           <span class="card-corner-ribbon">🎀</span>
         </div>
@@ -58,9 +66,14 @@
         <div class="glass-card question-card">
           <h2>Ready For A Funny Surprise? 🎁😆</h2>
           <p class="subtitle">Choose wisely... no pressure bestie 🤭</p>
+          <p class="meme-line" id="memeLine">Meme Meter: Calm... for now 🐤</p>
           <div class="button-row">
             <button class="btn btn-yes" id="yesBtn">YES, SHOW IT 🤩</button>
             <button class="btn btn-no" id="noBtn">NOPE 😤</button>
+          </div>
+          <div class="button-row button-row-small">
+            <button class="btn btn-sound" id="memeBtn" type="button">Give Me A Meme 🫠</button>
+            <button class="btn btn-sound" id="hypeBtn" type="button">Hype Button 🚀</button>
           </div>
         </div>
       </section>
@@ -74,6 +87,7 @@
           <div class="card-sticker angry-teddy">🧸💢</div>
           <h2>Excuse Me?! That Was Illegal 😤💢</h2>
           <p class="subtitle">My teddy filed a complaint against you 🧸📋</p>
+          <p class="meme-line">Penalty: You must laugh and click go back 😎</p>
           <button class="btn btn-back" id="goBackBtn">Okay Fine, Go Back 😂</button>
         </div>
       </section>
@@ -88,6 +102,12 @@
         <div class="final-wrap">
           <h2 class="final-title">BESTIE MODE UNLOCKED 🎉✨</h2>
           <p class="subtitle">You unlocked the chaos surprise 🧁</p>
+          <p class="mega-text">ULTIMATE BESTIE SURPRISE ACTIVATED 🚨🎊🧸</p>
+
+          <div class="button-row button-row-small">
+            <button class="btn btn-sound" id="finaleBlastBtn" type="button">CONFETTI BLAST 🎉</button>
+            <button class="btn btn-sound" id="goofyFinalBtn" type="button">GOOFY MODE 🔊</button>
+          </div>
 
           <!-- Your scrapbook photos from local images folder -->
           <div class="photo-collage">
